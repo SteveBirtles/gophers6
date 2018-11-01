@@ -10,46 +10,9 @@ const terminator = "\x00"
 
 var shaderProgram uint32
 
-const vertexShader = `#version 330
+const vertexShader = ""			// <-- add this
 
-uniform mat4 projection;
-uniform mat4 camera;
-uniform mat4 model;
-
-in vec3 vertexIn;
-in vec2 texCoordIn;
-in vec3 colourIn;
-
-out vec2 texCoordForFrag;
-out vec3 colourForFrag;
-
-void main() {
-
-    texCoordForFrag = texCoordIn;
-	colourForFrag = colourIn;
-
-    gl_Position = projection * camera * model * vec4(vertexIn, 1);
-
-}`
-
-const fragmentShader = `#version 330
-
-uniform sampler2D tex;
-
-in vec2 texCoordForFrag;
-in vec3 colourForFrag;
-
-out vec4 colourOut;
-
-void main() {
-
-    colourOut = texture(tex, texCoordForFrag);
-
-	colourOut.x *= colourForFrag.x;
-	colourOut.y *= colourForFrag.y;
-	colourOut.z *= colourForFrag.z;
-
-}`
+const fragmentShader = ""		// <-- add this
 
 func prepareShaders() {
 
